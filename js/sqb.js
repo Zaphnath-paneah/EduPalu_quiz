@@ -6,10 +6,17 @@
 @Date: 17/11/2015
 */
 
+<<<<<<< HEAD
 /* QUIZ EDUPALU FONGWAMAA v.1.1 by © 2015 Borel Destyno (http://www.fongwama.com) */
 
 if(mix==1){qst=melanger(qst);}//mélanger les questions à chaque chargement si "mix" est sur 1
 if(nb_q<1){nb_q=qst.length;}//le nombre de questions à poser n'a pas été précisé dans le fichier "questions.js". Toutes les questions seront posées.
+=======
+/* QUIZ EDUPALU FONGWAMAA v.1.1 by Â© 2015 Borel Destyno (http://www.fongwama.com) */
+
+if(mix==1){qst=melanger(qst);}//mÃ©langer les questions Ã  chaque chargement si "mix" est sur 1
+if(nb_q<1){nb_q=qst.length;}//le nombre de questions Ã  poser n'a pas Ã©tÃ© prÃ©cisÃ© dans le fichier "questions.js". Toutes les questions seront posÃ©es.
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 var q=0;var br=0;var points=0;var chkd=0;var msg="";var tempo;var i=0;var z=0;var fichier_son="";var min, sec;
 var q_en_cours=0;
 
@@ -55,7 +62,11 @@ function qu(i){
 	cont+="<span class='num'>Qu. "+(i+1)+"<\/span>";
 	//s'il y a un chrono
 	if(qst[i][10]){cont+="<span id='chrono'></span>";}
+<<<<<<< HEAD
 	//s'il y a un texte à lire
+=======
+	//s'il y a un texte Ã  lire
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 	
 	//if(qst[i][11]){cont+="&nbsp;&nbsp;&nbsp;<input type='button' class='bouton' id='btntxt' value=' Lire ' onclick='lire("+i+");' />";}
 
@@ -70,7 +81,11 @@ function qu(i){
 	cont+="<p class='ok'><input type='button' class='btn btn-primary' id='btnOK' value=' Valider ' onclick='corriger("+i+");' />";
 	cont+="<\p>";
 	document.getElementById("questions").innerHTML=cont;
+<<<<<<< HEAD
 	if(qst[i][10]){//si un compte à rebours est fixé
+=======
+	if(qst[i][10]){//si un compte Ã  rebours est fixÃ©
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 		var tp=qst[i][10].split(":");
 		min=tp[0];
 		sec=tp[1];sec=parseInt(sec)+1;
@@ -81,7 +96,11 @@ function qu(i){
 
 function rebours(){
 	sec--;
+<<<<<<< HEAD
 	if(sec<10){sec="0"+sec;}//mettre un zéro avant l'unité
+=======
+	if(sec<10){sec="0"+sec;}//mettre un zÃ©ro avant l'unitÃ©
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 	document.getElementById("chrono").innerHTML = min+":"+sec;
 	if(sec>0){tempo=setTimeout('rebours()',1000);}
 	if(sec==0&&min>0){min--;min="0"+min;sec=60;tempo=setTimeout('rebours()',1000);}
@@ -99,7 +118,11 @@ function corriger(numq){
 	for(var x=0;x<4;x++){
 		var rad=document.getElementById("r"+x);
 		if(rad){//si le bouton radio existe
+<<<<<<< HEAD
 			if(rad.checked==true && rad.value==qst[numq][5]){ //la bonne réponse a été cochée
+=======
+			if(rad.checked==true && rad.value==qst[numq][5]){ //la bonne rÃ©ponse a Ã©tÃ© cochÃ©e
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 				br=1;chkd=1;y=(x+6);
 				var image=document.getElementById("sp"+x);
 				points++;
@@ -107,6 +130,7 @@ function corriger(numq){
 			else if(rad.checked==true && rad.value!=qst[numq][5]){
 				chkd=1;y=(x+6);
 				var image=document.getElementById("sp"+x);
+<<<<<<< HEAD
 				if(penalite!=0){points-=penalite;} //en cas d'erreur, on décompte 0.5 pt du score
 			}
 		}
@@ -114,6 +138,15 @@ function corriger(numq){
 	if(encore==0 && chkd==1){clearTimeout(tempo);}//arrêter le compte à rebours si on ne peut pas entrer une autre réponse
 	if(chkd==0){ //l'utilisateur a cliqué sur OK sans avoir choisi une option
 		if(document.getElementById("questions").lastChild.id!="norep"){//afficher le message uniquement s'il n'est pas déjà affiché
+=======
+				if(penalite!=0){points-=penalite;} //en cas d'erreur, on dÃ©compte 0.5 pt du score
+			}
+		}
+	}
+	if(encore==0 && chkd==1){clearTimeout(tempo);}//arrÃªter le compte Ã  rebours si on ne peut pas entrer une autre rÃ©ponse
+	if(chkd==0){ //l'utilisateur a cliquÃ© sur OK sans avoir choisi une option
+		if(document.getElementById("questions").lastChild.id!="norep"){//afficher le message uniquement s'il n'est pas dÃ©jÃ  affichÃ©
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 			msg=document.createElement("div");
 			msg.id="norep";
 			msg.innerHTML="<p class='noreponse'>Veuillez s&eacute;lectionner une r&eacute;ponse !<\/p>";
@@ -122,8 +155,13 @@ function corriger(numq){
 		return false;
 	}
 	if(br==1){
+<<<<<<< HEAD
 		//en cas de bonne réponse
 		if(qst[numq][10]){clearTimeout(tempo);}//s'il y a un chrono, il faut l'arrêter
+=======
+		//en cas de bonne rÃ©ponse
+		if(qst[numq][10]){clearTimeout(tempo);}//s'il y a un chrono, il faut l'arrÃªter
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 		image.innerHTML="&nbsp;&nbsp;<img src='images/yes.png' alt='YES' />";
 		document.getElementById("btnOK").style.display="none";
 		creer_feedback();
@@ -139,7 +177,11 @@ function corriger(numq){
 		br=0;
 		return false;
 	}
+<<<<<<< HEAD
 	else{ //en cas de mauvaise réponse
+=======
+	else{ //en cas de mauvaise rÃ©ponse
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 		image.innerHTML="&nbsp;&nbsp;<img src='images/no.png' alt='NO' />";
 		creer_feedback();
 		msg=document.createElement("div");
@@ -153,7 +195,11 @@ function corriger(numq){
 			msg.innerHTML="<p class='ok'><input type='button' class='btn btn-primary' value=' Continuer ' onclick='qu("+(numq+1)+");' /><\/p>";
 			document.getElementById("feedback").appendChild(msg);
 		}
+<<<<<<< HEAD
 		if(penalite!=0){//si un décompte de points a été prévu
+=======
+		if(penalite!=0){//si un dÃ©compte de points a Ã©tÃ© prÃ©vu
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 			msg.innerHTML+="<div style='color:pink;font-size:8pt;text-align:center;'>ATTENTION: chaque erreur coute "+penalite+" pt !<\/div";
 		}
 		document.getElementById("feedback").appendChild(msg);
@@ -201,7 +247,11 @@ function calcul_score(){
 
 	var result=points/nb_q;
 
+<<<<<<< HEAD
 	result=Math.round(result*100);	//arrondi à 2 chiffres après la virgule
+=======
+	result=Math.round(result*100);	//arrondi Ã  2 chiffres aprÃ¨s la virgule
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 
 	msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<\/p>"; 
 
@@ -210,7 +260,11 @@ function calcul_score(){
 
 			if   (result>0 && result<=50){
 
+<<<<<<< HEAD
 					msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<small>[ soit "+result+"% ]<\/small>     Essaie de rejouer. Tu vas certainement t'améliorer<\/p>";
+=======
+					msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<small>[ soit "+result+"% ]<\/small>     Essaie de rejouer. Tu vas certainement t'amÃ©liorer<\/p>";
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 
 			}
 
@@ -220,7 +274,11 @@ function calcul_score(){
 			
 			 if(result>50 && result<=75){
 
+<<<<<<< HEAD
 					msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<small>[ soit "+result+"% ]<\/small>     Tu as fait un bon score mais tu peux sans doute faire mieux. Réessaie<\/p>";
+=======
+					msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<small>[ soit "+result+"% ]<\/small>     Tu as fait un bon score mais tu peux sans doute faire mieux. RÃ©essaie<\/p>";
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 
 			}
 
@@ -230,7 +288,11 @@ function calcul_score(){
 
 			 if(result>75 && result<=99){
 
+<<<<<<< HEAD
 					msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<small>[ soit "+result+"% ]<\/small>     Excellent score. Réessaie pour faire un sans faute<\/p>";
+=======
+					msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<small>[ soit "+result+"% ]<\/small>     Excellent score. RÃ©essaie pour faire un sans faute<\/p>";
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 
 			}
 		}
@@ -240,7 +302,11 @@ function calcul_score(){
 
 			if(result==100){
 
+<<<<<<< HEAD
 					msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<small>[ soit "+result+"% ]<\/small>    Parfait. On dirait que tu connais beaucoup de choses sur la paludisme. Tu peux continuer le quiz pour peut-être découvrir des nouvelles questions.<\/p>";
+=======
+					msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<small>[ soit "+result+"% ]<\/small>    Parfait. On dirait que tu connais beaucoup de choses sur la paludisme. Tu peux continuer le quiz pour peut-Ãªtre dÃ©couvrir des nouvelles questions.<\/p>";
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
 
 			}
 
@@ -251,4 +317,8 @@ function calcul_score(){
     document.getElementById("feedback").appendChild(msg);	
 
 	 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 90a2f33fc20b9cf056ebfba7aca718083ceb9345
