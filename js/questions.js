@@ -1,18 +1,3 @@
-/*
-@Name: BADILA Borel Destyno
-@Date: 10/11/2015
-@Version: 1.1
-@Date: 17/11/2015
-*/
-
-
-
-
-//Pour que le navigateur prene en compte les assent il suffit: &eacute; pour le assent aigu et &egrave;
-
-var titre="Prenez du plaisir avec EduPalu Fongw@ma !!!";
-var consigne="Choisissez la r&eacute;ponse correcte!";
-var auteur="&copy; 2015 - Fongwa@ma";
 var mix=1;
 var nb_q=6; // nombre de questions à poser. Si 0, le programme posera toutes les questions
 var penalite=0;

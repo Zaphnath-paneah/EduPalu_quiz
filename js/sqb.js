@@ -1,13 +1,3 @@
-
-/*
-@Name: BADILA Borel Destyno
-@Date: 10/11/2015
-@Version: 1.1
-@Date: 17/11/2015
-*/
-
-/* QUIZ EDUPALU FONGWAMAA v.1.1 by © 2015 Borel Destyno (http://www.fongwama.com) */
-
 if(mix==1){qst=melanger(qst);}//mélanger les questions à chaque chargement si "mix" est sur 1
 if(nb_q<1){nb_q=qst.length;}//le nombre de questions à poser n'a pas été précisé dans le fichier "questions.js". Toutes les questions seront posées.
 var q=0;var br=0;var points=0;var chkd=0;var msg="";var tempo;var i=0;var z=0;var fichier_son="";var min, sec;
@@ -27,14 +17,6 @@ function melanger(tbl){
 
  
 function start(){
-	document.getElementById("titre").innerHTML=titre;
-	if(auteur!=""){
-		msg=document.createElement("span");
-		msg.id="author";
-		msg.innerHTML="<br />"+auteur;
-		document.getElementById("titre").appendChild(msg);
-	}
-	document.getElementById("instructions").innerHTML=consigne;
 	i=0;
 	qu(0);
 }
