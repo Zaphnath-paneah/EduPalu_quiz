@@ -1,18 +1,42 @@
-if(mix==1){qst=melanger(qst);}//mélanger les questions à chaque chargement si "mix" est sur 1
+
+// si mix == 1
+// mélanger les questions à chaque chargement
+if(mix==1){
+    qst=melanger(qst);
+}
+
+
 if(nb_q<1){nb_q=qst.length;}//le nombre de questions à poser n'a pas été précisé dans le fichier "questions.js". Toutes les questions seront posées.
-var q=0;var br=0;var points=0;var chkd=0;var msg="";var tempo;var i=0;var z=0;var fichier_son="";var min, sec;
+
+var q=0;
+var br=0;
+var points=0;
+var chkd=0;
+var msg="";
+var tempo;
+var i=0;
+var z=0;
+var fichier_son="";
+var min, sec;
 var q_en_cours=0;
 
 function melanger(tbl){
-  var Num;var Temp = new Array();var Len = tbl.length;var j = Len;
-  for (var i=0; i<Len; i++){Temp[i] = tbl[i];}
-  for (i=0; i<Len; i++){
-    Num = Math.floor(j * Math.random());
-    tbl[i] = Temp[Num];
-    for (var k=Num; k < (j-1); k++) {Temp[k] = Temp[k+1];}
-    j--;
-  }
-  return tbl;
+    var Num;
+    var Temp = new Array();
+    var Len = tbl.length;
+    var j = Len;
+    for (var i=0; i<Len; i++){
+        Temp[i] = tbl[i];
+    }
+    for (i=0; i<Len; i++){
+        Num = Math.floor(j * Math.random());
+        tbl[i] = Temp[Num];
+        for (var k=Num; k < (j-1); k++){
+            Temp[k] = Temp[k+1];
+        }
+        j--;
+    }
+    return tbl;
 }
 
  
