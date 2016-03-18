@@ -68,18 +68,17 @@ function qu(i){
 
 	cont+="<p class='qust'>"+qst[i][0]+"<\/p>";
 	cont+="<form id='frm' name='frm' action='#'>";
-	if(qst[i][1]){cont+="<p class='propo'><input type='radio' name='rep' id='r0' value='A' /> "+qst[i][1]+"<span id='sp0'><\/span><\/p>";}
-	if(qst[i][2]){cont+="<p class='propo'><input type='radio' name='rep' id='r1' value='B' /> "+qst[i][2]+"<span id='sp1'><\/span><\/p>";}
-	if(qst[i][3]){cont+="<p class='propo'><input type='radio' name='rep' id='r2' value='C' /> "+qst[i][3]+"<span id='sp2'><\/span><\/p>";}
-	if(qst[i][4]){cont+="<p class='propo'><input type='radio' name='rep' id='r3' value='D' /> "+qst[i][4]+"<span id='sp3'><\/span><\/p>";}
+	for(var answer=1; answer<=4; answer++){
+        if(qst[i][answer]){
+            cont +="<p class='propo'><input type='button' class='btn btn-primary' id='button_answer_"+answer+"'";
+            cont += " value=' " + qst[i][answer] +" '"; 
+            cont += "onclick='corriger("+i+","+answer+");' />";
+        }
+    }
 	cont+="<\/form>";
-	cont+="<p class='ok'><input type='button' class='btn btn-primary' id='btnOK' value=' Valider ' onclick='corriger("+i+");' />";
-	cont+="<\p>";
 	document.getElementById("questions").innerHTML=cont;
 	if(qst[i][10]){//si un compte à rebours est fixé
-		var tp=qst[i][10].split(":");
-		min=tp[0];
-		sec=tp[1];sec=parseInt(sec)+1;
+		sec=parseInt(qst[i][10])+1;
 		rebours();
 		q_en_cours=i;
 	}
@@ -88,10 +87,9 @@ function qu(i){
 function rebours(){
 	sec--;
 	if(sec<10){sec="0"+sec;}//mettre un zéro avant l'unité
-	document.getElementById("chrono").innerHTML = min+":"+sec;
+	document.getElementById("chrono").innerHTML = sec;
 	if(sec>0){tempo=setTimeout('rebours()',1000);}
-	if(sec==0&&min>0){min--;min="0"+min;sec=60;tempo=setTimeout('rebours()',1000);}
-	if(sec==0&&min==0){trop_tard();return false;}
+	if(sec==0){trop_tard();return false;}
 }
 
 function lire(i){
@@ -100,23 +98,17 @@ function lire(i){
 	var tx=window.open(fichier,"","left="+gauche+",top="+haut+",width="+largeur+",height="+hauteur+",resizable=yes,scrollbars=yes");
 }
 
-function corriger(numq){
-	chkd=0;var y=0;
-	for(var x=0;x<4;x++){
-		var rad=document.getElementById("r"+x);
-		if(rad){//si le bouton radio existe
-			if(rad.checked==true && rad.value==qst[numq][5]){ //la bonne réponse a été cochée
-				br=1;chkd=1;y=(x+6);
-				var image=document.getElementById("sp"+x);
-				points++;
-			}
-			else if(rad.checked==true && rad.value!=qst[numq][5]){
-				chkd=1;y=(x+6);
-				var image=document.getElementById("sp"+x);
-				if(penalite!=0){points-=penalite;} //en cas d'erreur, on décompte 0.5 pt du score
-			}
-		}
-	}
+function corriger(question_id, answer_id){
+	chkd=0;
+    if( answer_id == qst[question_id][5]){ //la bonne réponse a été cochée
+        br=1;
+        chkd=1;
+        points++;
+    }
+    else {
+        chkd=1;
+        if(penalite!=0){points-=penalite;} //en cas d'erreur, on décompte 0.5 pt du score
+    }
 	if(encore==0 && chkd==1){clearTimeout(tempo);}//arrêter le compte à rebours si on ne peut pas entrer une autre réponse
 	if(chkd==0){ //l'utilisateur a cliqué sur OK sans avoir choisi une option
 		if(document.getElementById("questions").lastChild.id!="norep"){//afficher le message uniquement s'il n'est pas déjà affiché
@@ -129,41 +121,36 @@ function corriger(numq){
 	}
 	if(br==1){
 		//en cas de bonne réponse
-		if(qst[numq][10]){clearTimeout(tempo);}//s'il y a un chrono, il faut l'arrêter
-		image.innerHTML="&nbsp;&nbsp;<img src='images/yes.png' alt='YES' />";
-		document.getElementById("btnOK").style.display="none";
+		if(qst[question_id][10]){clearTimeout(tempo);}//s'il y a un chrono, il faut l'arrêter
 		creer_feedback();
-		if(document.getElementById("norep")){document.getElementById("norep").style.display="none";}
 		msg=document.createElement("div");
 		msg.innerHTML="<div class='bravo'>BRAVO ! R&eacute;ponse correcte !<\/div>";
 		document.getElementById("feedback").appendChild(msg);
-		if(qst[numq][y]){commentaire(numq,y);}//afficher le commentaire, s'il existe
+		if(qst[question_id][answer_id + 5]){commentaire(question_id,answer_id + 5);}//afficher le commentaire, s'il existe
 		calcul_score();
 		msg=document.createElement("div");
-		msg.innerHTML="<p class='ok'><input type='button' class='btn btn-primary' value=' Continuer ' onclick='qu("+(numq+1)+");' /><\/p>";
+		msg.innerHTML="<p class='ok'><input type='button' class='btn btn-primary' value=' Continuer ' onclick='qu("+(question_id+1)+");' /><\/p>";
 		document.getElementById("feedback").appendChild(msg);
 		br=0;
 		return false;
 	}
 	else{ //en cas de mauvaise réponse
-		image.innerHTML="&nbsp;&nbsp;<img src='images/no.png' alt='NO' />";
 		creer_feedback();
 		msg=document.createElement("div");
 		if(encore==1){msg.innerHTML="<div class='desole'>R&eacute;ponse incorrecte ! R&eacute;essayez !<\/div>";}
 		else{
-			document.getElementById("btnOK").style.display="none";
 			if(document.getElementById("norep")){document.getElementById("norep").style.display="none";}
 			msg.innerHTML="<div class='desole'>R&eacute;ponse incorrecte !<\/div>";
 			document.getElementById("feedback").appendChild(msg);
 			msg=document.createElement("div");
-			msg.innerHTML="<p class='ok'><input type='button' class='btn btn-primary' value=' Continuer ' onclick='qu("+(numq+1)+");' /><\/p>";
+			msg.innerHTML="<p class='ok'><input type='button' class='btn btn-primary' value=' Continuer ' onclick='qu("+(question_id+1)+");' /><\/p>";
 			document.getElementById("feedback").appendChild(msg);
 		}
 		if(penalite!=0){//si un décompte de points a été prévu
 			msg.innerHTML+="<div style='color:pink;font-size:8pt;text-align:center;'>ATTENTION: chaque erreur coute "+penalite+" pt !<\/div";
 		}
 		document.getElementById("feedback").appendChild(msg);
-		if(qst[numq][y]){commentaire(numq,y);}//afficher le commentaire, s'il existe
+		if(qst[question_id][answer_id + 5]){commentaire(question_id, answer_id);}//afficher le commentaire, s'il existe
 		calcul_score();
 		br=0;
 		return false;		
@@ -172,7 +159,6 @@ function corriger(numq){
 
 function trop_tard(){
 		creer_feedback();
-		document.getElementById("btnOK").style.display="none";
 		msg=document.createElement("div");
 		msg.id="sorry";
 		msg.innerHTML="<div class='desole'>Le temps imparti est &eacute;coul&eacute; !<\/div>";
