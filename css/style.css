@@ -32,91 +32,19 @@
 }
 
 
-#titre, #instructions, #questions, #copyr{
-  /* width:650px; */
-  margin:2px auto;
-  padding:15px;
+.correct, .wrong {
+  font-weight: bold;
+}
+
+.correct {
+    color: #089A08;
+}
+
+.wrong {
+    color: #FF6363;
 }
 
 
-
-
-#cadre{
-  border: 2px;
-  background-color: #FFF; 
-  border-radius: 3px;
-  text-align: center;
-  color: #6495ED;
-
-}
-
-#demarrer{
-  color: #FFF;
-}
-
-#text{
-  color: #fff;
-}
-
-
-#titre{
-  margin-top:20px;
-  font:bold 18pt arial;
-  color:#696969;
-  text-align:center;
-}
-
-#instructions{
-  font:bold 12pt arial;
-  color:#696969;
-  font-style:italic;
-  text-align:center;
-}
-
-
-#author{
-  font:normal 8pt arial;
-  color:#696969;
-}
-
-.num{
-  font:bold 14pt arial;
-  color:#6495ED;
-}
-.qust{
-  padding-left: 0px;
-  font:bold 12pt arial;
-  color:#6495ED;
-}
-
-.propo{
-  padding-left:50px;
-  font-style:italic;
-  color:black;
-}
-
-.ok{text-align:center;
-}
-
-
-.bravo, .desole{
-  font:bold 20pt verdana;
-  color:lime;
-  text-align:center;
-}
-.desole{color:red;}
-.score{
-  text-align:center;
-  font:bold 14pt arial;
-  color:#000;
-  border:dashed 1px #000;
-  padding:5px 0px;
-}
-.noreponse{
-  text-align:center;
-  font:bold 9pt arial,verdana;
-  color:red;
-}
 #comment{
   margin-top:10px;
   text-align:left;
@@ -129,83 +57,6 @@
   border:none;
   vertical-align:middle;
   margin-right:10px;
-}
-
-
-#chrono{
-  margin-left:20px;
-  font:bold 12pt arial;
-  color:#6495ED;
-  background-color:transparent;
-  padding:3px;
-  border:solid 1px #6495ED;
-  text-align:center;
-}
-img, object  {vertical-align:middle;}
-
-.titree{
-
-  border: 2px black inset;
-  width: 700px;
-  height: 520px;
-  margin-left: 550px;
-  padding: 10px;
-
-}
-
-.test{
-  text-align: center;
-  width: 500px;
-  height: 110px;
-  border: 2px black inset;
-  margin-left: 90px;
-}
-
-#entete{
-
-  text-align: center;
-  color: black;
-}
-
-#paragraphe{
-
-  text-align: justify;
-  width: 600px;
-  height: 110px;
-  margin-left: 45px;
-  color: black;
-}
-
-
-#mains{
-
-  background-color: #fff;
-  border-radius: 3px;
-}
-
-#contener{
-
-  background-color: #fff;
-}
-
-#pos{
-  margin-left: 170px;
-}
-
-#pose{
-  margin-left: 120px;
-}
-
-#txt{
-  color: #fff;
-}
-
-#jpg{
-
-  width: 900px;
-  height: 400px;
-  margin-left: 110px;
-  
 }
 
 @media (min-width: 600px) {
