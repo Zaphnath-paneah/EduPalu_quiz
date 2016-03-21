@@ -1,12 +1,11 @@
+// shuffle questions
+var questions_order = shuffle_index(questions);
 
-// si mix == 1
-// mélanger les questions à chaque chargement
-if(mix==1){
-    qst=melanger(qst);
+// ask all questions if 
+// questions_nb is not defined
+if (!questions_nb){
+    questions_nb=questions.length;
 }
-
-
-if(nb_q<1){nb_q=qst.length;}//le nombre de questions à poser n'a pas été précisé dans le fichier "questions.js". Toutes les questions seront posées.
 
 var q=0;
 var br=0;
@@ -18,229 +17,152 @@ var i=0;
 var z=0;
 var fichier_son="";
 var min, sec;
-var q_en_cours=0;
+var score = 0;
 
-function melanger(tbl){
-    var Num;
-    var Temp = new Array();
-    var Len = tbl.length;
-    var j = Len;
-    for (var i=0; i<Len; i++){
-        Temp[i] = tbl[i];
+
+function shuffle_index(a){
+    var temp_array = new Array();
+    var len = a.length;
+    // fill table
+    for (idx=0; idx<len; idx++) {
+        temp_array.push(idx);
     }
-    for (i=0; i<Len; i++){
-        Num = Math.floor(j * Math.random());
-        tbl[i] = Temp[Num];
-        for (var k=Num; k < (j-1); k++){
-            Temp[k] = Temp[k+1];
-        }
-        j--;
+    // shuffle table
+    for (x=0; x<len; x++) {
+        var i = Math.floor(len * Math.random());
+        var j = Math.floor(len * Math.random());
+        var t = temp_array[i];
+        temp_array[i] = temp_array[j];
+        temp_array[j] = t;
     }
-    return tbl;
+    return temp_array;
 }
 
  
 function start(){
-	i=0;
-	qu(0);
+    $("#score_value").html(score);
+	question_idx = questions_order.pop();
+    questions_count = 1;
+	ask_question(question_idx);
 }
 
-function fini(){
-	document.getElementById("questions").innerHTML="<p class='bravo'>Exercice termin&eacute; !<\/p>";
-	if(recommencer==1){document.getElementById("questions").innerHTML+="<p class='bravo'><input type='button' class='btn btn-primary' value='Recommencer' onclick='window.location.reload();' /><\/p>";}
-	msg=document.createElement("div");
-	msg.id="feedback";
-	document.getElementById("questions").appendChild(msg);
-	calcul_score();
+function finish(){
+    $()
+	$("#comment_1").html("<p>Le jeu est termin&eacute; !</p>");
 
-}
-
-function qu(i){
-	if(i==nb_q){fini();return false;} //il n'y a plus de question
-	var cont="";
-	cont+="<span class='num'>Question "+(i+1)+"<\/span>";
-	//s'il y a un chrono
-	if(qst[i][10]){cont+="<span id='chrono'></span>";}
-	//s'il y a un texte à lire
-	
-	//if(qst[i][11]){cont+="&nbsp;&nbsp;&nbsp;<input type='button' class='bouton' id='btntxt' value=' Lire ' onclick='lire("+i+");' />";}
-
-
-	cont+="<p class='qust'>"+qst[i][0]+"<\/p>";
-	cont+="<form id='frm' name='frm' action='#'>";
-	for(var answer=1; answer<=4; answer++){
-        if(qst[i][answer]){
-            cont +="<p class='propo'><input type='button' class='btn btn-primary' id='button_answer_"+answer+"'";
-            cont += " value=' " + qst[i][answer] +" '"; 
-            cont += "onclick='corriger("+i+","+answer+");' />";
-        }
+    button=document.createElement("div");
+    button.innerHTML="<input type='button' class='btn btn-primary' value='Rejouer' onclick='window.location.reload();' />";
+    document.getElementById("question_comment").appendChild(button);
+    
+    if (score>=0 && score<20){
+        msg = "Essaie de rejouer. Tu vas certainement t'améliorer";
     }
-	cont+="<\/form>";
-	document.getElementById("questions").innerHTML=cont;
-	if(qst[i][10]){//si un compte à rebours est fixé
-		sec=parseInt(qst[i][10])+1;
-		rebours();
-		q_en_cours=i;
-	}
+    if (score>=20 && score<=40){
+        msg = "Tu as fait un bon score mais tu peux sans doute faire mieux. Réessaie.";
+    }
+    if (score>=40 && score<=60){
+        msg = "Tu as fait un bon score mais tu peux sans doute faire mieux. Réessaie.";
+    }
+    if (score>=60 ){
+        msg = "Bravo. Tu connais beaucoup de choses sur le paludisme.";
+    }	
+    $("#comment_2").html(msg);
+}
+
+
+function ask_question(){
+    // clean previous comment (if any)
+    $("#comment_1").html("");
+    $("#comment_2").html("");
+    $("#button_next").remove();
+	// no more question
+    if(questions_count > questions_nb){
+        finish();
+        return false;
+    }
+    // get all data related to a question
+    q_data = questions[ question_idx ]
+    // update question number
+    $("#question_nb_value").html(questions_count);
+    // update question text
+    $("#question_text").html(q_data.text);
+    // write answers
+	var answers_content="";
+	answers_content+="<form id='frm' action='#'>";
+	for(var answer_idx=0; answer_idx<q_data.answers.length; answer_idx++){
+        var answer_data = q_data.answers[answer_idx]
+        answers_content += "<div class='answer'><input type='button' class='btn-answer btn btn-primary'";
+        answers_content += " value=' " + answer_data.text +" '"; 
+        answers_content += "onclick='corriger("+question_idx+","+answer_idx+");' /></div>";
+
+    }
+	answers_content+="<\/form>";
+	$("#answers").html(answers_content);
+    // update question index
+    question_idx = questions_order.pop();
+    // update question count
+    questions_count ++;
+    // update countdown
+    sec=parseInt(q_data.time)+1;
+    rebours();
 }
 
 function rebours(){
 	sec--;
 	if(sec<10){sec="0"+sec;}//mettre un zéro avant l'unité
-	document.getElementById("chrono").innerHTML = sec;
+	document.getElementById("chrono_value").innerHTML = sec;
 	if(sec>0){tempo=setTimeout('rebours()',1000);}
 	if(sec==0){trop_tard();return false;}
 }
 
-function lire(i){
-	var largeur=600;var hauteur=500;var gauche=(screen.width-largeur)/2;var haut=(screen.height-hauteur)/2;
-	var fichier = qst[i][11];
-	var tx=window.open(fichier,"","left="+gauche+",top="+haut+",width="+largeur+",height="+hauteur+",resizable=yes,scrollbars=yes");
+
+function corriger(q_idx, a_idx){
+    var answer = questions[q_idx].answers[a_idx];
+    // stop countdown
+    clearTimeout(tempo);
+    // desactivate answers buttons
+    $(".btn-answer").attr("onclick", "");
+ 
+    // update score
+	if(answer.correct==true){
+        score += 1;
+	}
+	else{
+        score = score - penalite;	
+	}
+    $("#question_score_value").html(score);
+    // display comment
+    add_comment(answer.correct, answer.comment);
+    add_button_next(question_idx);
 }
 
-function corriger(question_id, answer_id){
-	chkd=0;
-    if( answer_id == qst[question_id][5]){ //la bonne réponse a été cochée
-        br=1;
-        chkd=1;
-        points++;
-    }
-    else {
-        chkd=1;
-        if(penalite!=0){points-=penalite;} //en cas d'erreur, on décompte 0.5 pt du score
-    }
-	if(encore==0 && chkd==1){clearTimeout(tempo);}//arrêter le compte à rebours si on ne peut pas entrer une autre réponse
-	if(chkd==0){ //l'utilisateur a cliqué sur OK sans avoir choisi une option
-		if(document.getElementById("questions").lastChild.id!="norep"){//afficher le message uniquement s'il n'est pas déjà affiché
-			msg=document.createElement("div");
-			msg.id="norep";
-			msg.innerHTML="<p class='noreponse'>Veuillez s&eacute;lectionner une r&eacute;ponse !<\/p>";
-			document.getElementById("questions").appendChild(msg);
-		}
-		return false;
-	}
-	if(br==1){
-		//en cas de bonne réponse
-		if(qst[question_id][10]){clearTimeout(tempo);}//s'il y a un chrono, il faut l'arrêter
-		creer_feedback();
-		msg=document.createElement("div");
-		msg.innerHTML="<div class='bravo'>BRAVO ! R&eacute;ponse correcte !<\/div>";
-		document.getElementById("feedback").appendChild(msg);
-		if(qst[question_id][answer_id + 5]){commentaire(question_id,answer_id + 5);}//afficher le commentaire, s'il existe
-		calcul_score();
-		msg=document.createElement("div");
-		msg.innerHTML="<p class='ok'><input type='button' class='btn btn-primary' value=' Continuer ' onclick='qu("+(question_id+1)+");' /><\/p>";
-		document.getElementById("feedback").appendChild(msg);
-		br=0;
-		return false;
-	}
-	else{ //en cas de mauvaise réponse
-		creer_feedback();
-		msg=document.createElement("div");
-		if(encore==1){msg.innerHTML="<div class='desole'>R&eacute;ponse incorrecte ! R&eacute;essayez !<\/div>";}
-		else{
-			if(document.getElementById("norep")){document.getElementById("norep").style.display="none";}
-			msg.innerHTML="<div class='desole'>R&eacute;ponse incorrecte !<\/div>";
-			document.getElementById("feedback").appendChild(msg);
-			msg=document.createElement("div");
-			msg.innerHTML="<p class='ok'><input type='button' class='btn btn-primary' value=' Continuer ' onclick='qu("+(question_id+1)+");' /><\/p>";
-			document.getElementById("feedback").appendChild(msg);
-		}
-		if(penalite!=0){//si un décompte de points a été prévu
-			msg.innerHTML+="<div style='color:pink;font-size:8pt;text-align:center;'>ATTENTION: chaque erreur coute "+penalite+" pt !<\/div";
-		}
-		document.getElementById("feedback").appendChild(msg);
-		if(qst[question_id][answer_id + 5]){commentaire(question_id, answer_id);}//afficher le commentaire, s'il existe
-		calcul_score();
-		br=0;
-		return false;		
-	}
-}
 
 function trop_tard(){
-		creer_feedback();
-		msg=document.createElement("div");
-		msg.id="sorry";
-		msg.innerHTML="<div class='desole'>Le temps imparti est &eacute;coul&eacute; !<\/div>";
-		if(i==nb_q){fini();return false;} //il n'y a plus de question
-		document.getElementById("feedback").appendChild(msg);
-		
-		i = q_en_cours + 1;
-		msg=document.createElement("div");
-		msg.innerHTML="<p class='ok'><input type='button' class='btn btn-primary' value=' Continuer ' onclick='qu("+i+");' /><\/p>";
-		document.getElementById("sorry").appendChild(msg);
-		calcul_score();
-}
-
-function creer_feedback(){
-	document.getElementById("questions").removeChild(document.getElementById("questions").lastChild);
-	msg=document.createElement("div");
-	msg.id="feedback";
-	document.getElementById("questions").appendChild(msg);
-}
-
-function commentaire(a,b){
-	msg=document.createElement("div");//ajout du commentaire
-	msg.id="comment";
-	msg.innerHTML="<img class='info' src='images/info.gif' alt='Commentaire' align='left' />"+qst[a][b];
-	document.getElementById("feedback").appendChild(msg);
+		$("#comment_1").html("<div class='desole'>Le temps imparti est &eacute;coul&eacute; !<\/div>");
+		if(question_idx+1==question_nb){
+            fini();
+            return false;
+        }
+		add_button_next(question_idx+1);
+		$("#question_score_value").html(score);
 }
 
 
-function calcul_score(){
-
-	msg=document.createElement("div");
-
-	var result=points/nb_q;
-
-	result=Math.round(result*100);	//arrondi à 2 chiffres après la virgule
-
-	msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<\/p>"; 
-
-
-	    if(nb_q==points){
-
-			if   (result>0 && result<=50){
-
-					msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<small>[ soit "+result+"% ]<\/small>     Essaie de rejouer. Tu vas certainement t'améliorer<\/p>";
-
-			}
-
-		}
-
-		if(nb_q==points){
-			
-			 if(result>50 && result<=75){
-
-					msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<small>[ soit "+result+"% ]<\/small>     Tu as fait un bon score mais tu peux sans doute faire mieux. Réessaie<\/p>";
-
-			}
-
-		}
-
-		 if(nb_q==points){
-
-			 if(result>75 && result<=99){
-
-					msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<small>[ soit "+result+"% ]<\/small>     Excellent score. Réessaie pour faire un sans faute<\/p>";
-
-			}
-		}
-
-
-		 if(nb_q==points){
-
-			if(result==100){
-
-					msg.innerHTML="<p class='score'>Votre score : "+points+" / "+nb_q+"&nbsp;&nbsp;&nbsp;<small>[ soit "+result+"% ]<\/small>    Parfait. On dirait que tu connais beaucoup de choses sur la paludisme. Tu peux continuer le quiz pour peut-être découvrir des nouvelles questions.<\/p>";
-
-			}
-
-		}
-
-    
-
-    document.getElementById("feedback").appendChild(msg);	
-
-	 
+function add_button_next(idx){
+    button=document.createElement("div");
+    button.innerHTML="<input type='button' id='button_next' class='btn btn-primary' value=' Continuer ' onclick='ask_question("+(idx)+");' />";
+    document.getElementById("question_comment").appendChild(button);
 }
+
+function add_comment(correct, comment){
+    var com_text = "";
+    if (correct = true) {
+        com_text = "<div class='bravo'>BRAVO ! R&eacute;ponse correcte !<\/div>";
+    } else {
+        com_text = "<div class='desole'>R&eacute;ponse incorrecte !<\/div>";
+    }
+    $("#comment_1").html(com_text);
+    $("#comment_2").html(comment);
+}
+
+

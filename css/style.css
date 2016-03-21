@@ -1,4 +1,5 @@
 #chrono {
+    display: inline-block;
     float: right;
     margin-left: 20px;
     font: bold 12pt arial;
