@@ -2,14 +2,14 @@
   margin: 5px;
 }
 
-#question_nb, #question_timer{
+#question_nb, #question_timer, #question_score, #next-replay {
     display: inline-block;
     font: bold 12pt arial;
     color: #6495ED;
     padding: 3px 0px 3px 0px;
 }
 
-#question_timer {
+#question_timer, #next-replay {
     float: right;
 }
 
@@ -27,6 +27,9 @@
     margin-bottom: 2px;
 }
 
+#question_footer {
+    margin-top: 5px;
+}
 
 
 #titre, #instructions, #questions, #copyr{

@@ -44,9 +44,7 @@ function finish(){
     $()
 	$("#comment_1").html("<p>Le jeu est termin&eacute; !</p>");
 
-    button=document.createElement("div");
-    button.innerHTML="<input type='button' class='btn btn-primary' value='Rejouer' onclick='window.location.reload();' />";
-    document.getElementById("question_comment").appendChild(button);
+    $("#next-replay").html("<input type='button' class='btn btn-primary' value='Rejouer' onclick='window.location.reload();' />");
     
     perf = score / score_max * 100;
     if (perf>=0 && perf<50){
@@ -151,9 +149,8 @@ function trop_tard(){
 
 
 function add_button_next(idx){
-    button=document.createElement("div");
-    button.innerHTML="<input type='button' id='button_next' class='btn btn-primary' value=' Continuer ' onclick='ask_question("+(idx)+");' />";
-    document.getElementById("question_comment").appendChild(button);
+    var content = "<input type='button' class='btn btn-primary' value='Continuer' onclick='ask_question("+(idx)+");' />";
+    $("#next-replay").html(content);
 }
 
 function add_comment(correct, comment){
