@@ -44,14 +44,16 @@ function finish(){
     $()
 	$("#comment_1").html("<p>Le jeu est termin&eacute; !</p>");
 
-    $("#next-replay").html("<input type='button' class='btn btn-primary' value='Rejouer' onclick='window.location.reload();' />");
+    var content = "<input type='button' class='btn btn-primary' value='Rejouer' onclick='window.location.reload();' /> ";
+    content += "<a href='index.html' class='btn btn-primary'>Quitter</a>"
+    $("#next-replay").html(content);
     
     perf = score / score_max * 100;
     if (perf>=0 && perf<50){
-        msg = "Essaie de rejouer. Tu vas certainement t'améliorer";
+        msg = "Essaie de rejouer. Tu vas certainement t'am&eacute;liorer";
     }
     if (perf>=50 && perf<=80){
-        msg = "Tu as fait un bon score mais tu peux sans doute faire mieux. Réessaie.";
+        msg = "Tu as fait un bon score mais tu peux sans doute faire mieux. R&eacute;essaie.";
     }
     if (perf>=80 ){
         msg = "Bravo. Tu connais beaucoup de choses sur le paludisme.";
@@ -138,7 +140,7 @@ function trop_tard(){
     // desactivate answers buttons
     $(".btn-answer").attr("onclick", "#");
     
-    $("#comment_1").html("<div class='desole'>Le temps imparti est &eacute;coul&eacute; !<\/div>");
+    $("#comment_1").html("<div class='wrong'>Le temps imparti est &eacute;coul&eacute; !<\/div>");
     if(question_idx+1==question_nb){
         fini();
         return false;
@@ -156,9 +158,9 @@ function add_button_next(idx){
 function add_comment(correct, comment){
     var com_text = "";
     if (correct == true) {
-        com_text = "<div class='bravo'>BRAVO ! R&eacute;ponse correcte !<\/div>";
+        com_text = "<div class='correct'>Bravo. Bonne r&eacute;ponse !<\/div>";
     } else {
-        com_text = "<div class='desole'>R&eacute;ponse incorrecte !<\/div>";
+        com_text = "<div class='wrong'>Mauvaise r&eacute;ponse.<\/div>";
     }
     $("#comment_1").html(com_text);
     $("#comment_2").html(comment);
