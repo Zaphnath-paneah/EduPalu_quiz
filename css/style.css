@@ -1,3 +1,7 @@
+.container{
+  margin: 5px;
+}
+
 #question_nb, #question_timer{
     display: inline-block;
     font: bold 12pt arial;
@@ -5,20 +9,24 @@
     padding: 3px 0px 3px 0px;
 }
 
-
 #question_timer {
     float: right;
 }
 
 #question_body {
     clear: both;
+}
 
+#answers {
+    min-width: 100%;
+    text-align: center;
 }
 
 .btn-answer {
     margin-top: 2px;
     margin-bottom: 2px;
 }
+
 
 
 #titre, #instructions, #questions, #copyr{
@@ -28,11 +36,7 @@
 }
 
 
-#page{
 
-  /*    background-color: #6495ED;  */
-  border: 3px black dotted;;
-}
 
 #cadre{
   border: 2px;
@@ -199,4 +203,12 @@ img, object  {vertical-align:middle;}
   height: 400px;
   margin-left: 110px;
   
+}
+
+@media (min-width: 600px) {
+.container {
+    width: 600px;
+    border: 1px gray;
+}
+
 }
