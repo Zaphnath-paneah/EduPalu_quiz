@@ -49,11 +49,8 @@ function finish(){
     document.getElementById("question_comment").appendChild(button);
     
     perf = score / score_max * 100;
-    if (perf>=0 && perf<30){
+    if (perf>=0 && perf<50){
         msg = "Essaie de rejouer. Tu vas certainement t'améliorer";
-    }
-    if (perf>=30 && perf<=50){
-        msg = "Tu as fait un bon score mais tu peux sans doute faire mieux. Réessaie.";
     }
     if (perf>=50 && perf<=80){
         msg = "Tu as fait un bon score mais tu peux sans doute faire mieux. Réessaie.";
@@ -82,13 +79,15 @@ function ask_question(){
     $("#question_nb_value").html(questions_count);
     // update question text
     $("#question_text").html(q_data.text);
+    // shuffle answers
+    answers_shuffled = shuffle_index(q_data.answers)
     // write answers
 	var answers_content="";
 	answers_content+="<form id='frm' action='#'>";
-	for(var answer_idx=0; answer_idx<q_data.answers.length; answer_idx++){
-        var answer_data = q_data.answers[answer_idx]
+	for(var i=0; i<q_data.answers.length; i++){
+        var answer_idx = answers_shuffled.pop();
         answers_content += "<div class='answer'><input type='button' class='btn-answer btn btn-primary'";
-        answers_content += " value=' " + answer_data.text +" '"; 
+        answers_content += " value=' " + q_data.answers[answer_idx].text +" '"; 
         answers_content += "onclick='corriger("+question_idx+","+answer_idx+");' /></div>";
 
     }
