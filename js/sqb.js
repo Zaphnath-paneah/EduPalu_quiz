@@ -58,7 +58,7 @@ function fini(){
 function qu(i){
 	if(i==nb_q){fini();return false;} //il n'y a plus de question
 	var cont="";
-	cont+="<span class='num'>Qu. "+(i+1)+"<\/span>";
+	cont+="<span class='num'>Question "+(i+1)+"<\/span>";
 	//s'il y a un chrono
 	if(qst[i][10]){cont+="<span id='chrono'></span>";}
 	//s'il y a un texte à lire
