@@ -13,6 +13,10 @@
     float: right;
 }
 
+#question_text {
+    font-weight: bold;
+}
+
 #question_body {
     clear: both;
 }
@@ -23,8 +27,8 @@
 }
 
 .btn-answer {
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #question_footer {
@@ -42,21 +46,6 @@
 
 .wrong {
     color: #FF6363;
-}
-
-
-#comment{
-  margin-top:10px;
-  text-align:left;
-  font:normal 9pt arial;
-  color:#000;
-  border:dashed 1px #000;
-  padding:8px 5px;
-}
-.info{
-  border:none;
-  vertical-align:middle;
-  margin-right:10px;
 }
 
 @media (min-width: 600px) {

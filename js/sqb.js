@@ -44,7 +44,8 @@ function finish(){
     $()
 	$("#comment_1").html("<p>Le jeu est termin&eacute; !</p>");
 
-    var content = "<input type='button' class='btn btn-primary' value='Rejouer' onclick='window.location.reload();' /> ";
+    var content = "<input type='button' class='btn btn-primary' value='Rejouer' onclick='window.location.reload();' />";
+    content += "&nbsp;&nbsp;";
     content += "<a href='index.html' class='btn btn-primary'>Quitter</a>"
     $("#next-replay").html(content);
     
