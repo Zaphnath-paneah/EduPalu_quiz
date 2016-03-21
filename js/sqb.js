@@ -137,13 +137,16 @@ function corriger(q_idx, a_idx){
 
 
 function trop_tard(){
-		$("#comment_1").html("<div class='desole'>Le temps imparti est &eacute;coul&eacute; !<\/div>");
-		if(question_idx+1==question_nb){
-            fini();
-            return false;
-        }
-		add_button_next(question_idx+1);
-		$("#question_score_value").html(score);
+    // desactivate answers buttons
+    $(".btn-answer").attr("onclick", "#");
+    
+    $("#comment_1").html("<div class='desole'>Le temps imparti est &eacute;coul&eacute; !<\/div>");
+    if(question_idx+1==question_nb){
+        fini();
+        return false;
+    }
+    add_button_next(question_idx+1);
+    $("#question_score_value").html(score);
 }
 
 
