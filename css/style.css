@@ -1,13 +1,18 @@
-#chrono {
+#question_nb, #question_timer{
     display: inline-block;
-    float: right;
-    margin-left: 20px;
     font: bold 12pt arial;
     color: #6495ED;
-    background-color: transparent;
     padding: 3px;
-    border: solid 1px #6495ED;
-    text-align: center;
+}
+
+
+#question_timer {
+    float: right;
+}
+
+#question_body {
+    clear: both;
+
 }
 
 #titre, #instructions, #questions, #copyr{

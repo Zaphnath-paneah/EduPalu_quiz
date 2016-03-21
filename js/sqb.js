@@ -110,7 +110,7 @@ function ask_question(){
 function rebours(){
 	sec--;
 	if(sec<10){sec="0"+sec;}//mettre un zéro avant l'unité
-	document.getElementById("chrono_value").innerHTML = sec;
+	document.getElementById("question_timer_value").innerHTML = sec;
 	if(sec>0){tempo=setTimeout('rebours()',1000);}
 	if(sec==0){trop_tard();return false;}
 }
@@ -121,7 +121,7 @@ function corriger(q_idx, a_idx){
     // stop countdown
     clearTimeout(tempo);
     // desactivate answers buttons
-    $(".btn-answer").attr("onclick", "");
+    $(".btn-answer").attr("onclick", "#");
  
     // update score
 	if(answer.correct==true){
@@ -156,7 +156,7 @@ function add_button_next(idx){
 
 function add_comment(correct, comment){
     var com_text = "";
-    if (correct = true) {
+    if (correct == true) {
         com_text = "<div class='bravo'>BRAVO ! R&eacute;ponse correcte !<\/div>";
     } else {
         com_text = "<div class='desole'>R&eacute;ponse incorrecte !<\/div>";
