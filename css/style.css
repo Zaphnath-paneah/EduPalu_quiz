@@ -2,7 +2,7 @@
     display: inline-block;
     font: bold 12pt arial;
     color: #6495ED;
-    padding: 3px;
+    padding: 3px 0px 3px 0px;
 }
 
 
@@ -14,6 +14,12 @@
     clear: both;
 
 }
+
+.btn-answer {
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
 
 #titre, #instructions, #questions, #copyr{
   /* width:650px; */

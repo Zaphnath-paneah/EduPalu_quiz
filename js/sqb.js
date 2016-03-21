@@ -7,16 +7,10 @@ if (!questions_nb){
     questions_nb=questions.length;
 }
 
-var q=0;
-var br=0;
-var points=0;
-var chkd=0;
-var msg="";
+// maximum score is the sum of all time
+var score_max = 0;
+
 var tempo;
-var i=0;
-var z=0;
-var fichier_son="";
-var min, sec;
 var score = 0;
 
 
@@ -54,16 +48,17 @@ function finish(){
     button.innerHTML="<input type='button' class='btn btn-primary' value='Rejouer' onclick='window.location.reload();' />";
     document.getElementById("question_comment").appendChild(button);
     
-    if (score>=0 && score<20){
+    perf = score / score_max * 100;
+    if (perf>=0 && perf<30){
         msg = "Essaie de rejouer. Tu vas certainement t'améliorer";
     }
-    if (score>=20 && score<=40){
+    if (perf>=30 && perf<=50){
         msg = "Tu as fait un bon score mais tu peux sans doute faire mieux. Réessaie.";
     }
-    if (score>=40 && score<=60){
+    if (perf>=50 && perf<=80){
         msg = "Tu as fait un bon score mais tu peux sans doute faire mieux. Réessaie.";
     }
-    if (score>=60 ){
+    if (perf>=80 ){
         msg = "Bravo. Tu connais beaucoup de choses sur le paludisme.";
     }	
     $("#comment_2").html(msg);
@@ -75,6 +70,7 @@ function ask_question(){
     $("#comment_1").html("");
     $("#comment_2").html("");
     $("#button_next").remove();
+    
 	// no more question
     if(questions_count > questions_nb){
         finish();
@@ -98,6 +94,9 @@ function ask_question(){
     }
 	answers_content+="<\/form>";
 	$("#answers").html(answers_content);
+    
+    // update maximum score
+    score_max += q_data.time;
     // update question index
     question_idx = questions_order.pop();
     // update question count
@@ -105,6 +104,8 @@ function ask_question(){
     // update countdown
     sec=parseInt(q_data.time)+1;
     rebours();
+    // update score
+    $("#question_score_value").html(score);
 }
 
 function rebours(){
@@ -120,17 +121,16 @@ function corriger(q_idx, a_idx){
     var answer = questions[q_idx].answers[a_idx];
     // stop countdown
     clearTimeout(tempo);
+
     // desactivate answers buttons
     $(".btn-answer").attr("onclick", "#");
  
     // update score
 	if(answer.correct==true){
-        score += 1;
-	}
-	else{
-        score = score - penalite;	
+        score = score + parseInt(sec);
 	}
     $("#question_score_value").html(score);
+    
     // display comment
     add_comment(answer.correct, answer.comment);
     add_button_next(question_idx);

@@ -2,8 +2,6 @@
 var questions_nb=3;
 
 var score=0;
-var penalite=0;
-var recommencer=1;
 
 var qst=new Array();// <== NE PAS MODIFIER !!    
 		// La variable n représente le numéro de la question et est incrémenté (n++;) à chaque nouvelle question.
