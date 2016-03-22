@@ -6,13 +6,15 @@
     <title>Edupalu Quiz / FCRM &amp; Fongwama</title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="js/questions.js"></script>
+    <script type="text/javascript" src="js/quiz.js"></script>
 </head>
-<body>
 
+<body onload="welcome_quiz();">
 <div class="container">
     <h1>Quiz</h1>
     <p>
-    Pour chacune des questions suivantes, choisit la réponse correcte.
+    Pour chacune des <span id="welcome_questions_nb"></span> questions suivantes, choisit la réponse correcte.
     </p>
     <p>
     Plus ta réponse sera rapide et correcte, plus tu marqueras de points.

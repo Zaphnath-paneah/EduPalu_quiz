@@ -32,6 +32,9 @@ function shuffle_index(a){
     return temp_array;
 }
 
+function welcome_quiz(){
+    document.getElementById("welcome_questions_nb").innerHTML = questions_nb;
+}
  
 function start_quiz(){
     $("#score_value").html(score);
