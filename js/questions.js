@@ -1,5 +1,5 @@
 // number of questions to ask
-var questions_nb=3;
+var questions_nb=5;
 
 // reset score
 var score=0;
