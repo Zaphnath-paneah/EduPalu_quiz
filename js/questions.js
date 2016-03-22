@@ -250,12 +250,7 @@ var questions = [
                 "comment": "<em>Anophèle</em> est l'espèce de moustique qui transmet le paludisme. La bonne réponse était Plasmodium falciparum.",
                 "correct": false,
             },
-            {
-                "text" : "Plasmodium vivax",
-                "comment": "La bonne réponse est Plasmodium falciparum.",
-                "correct": false,
-            },
-        ]
+         ]
     },
     {
     "text" : "Dans le corps humain, où se cachent et se multiplient les parasites responsables du paludisme ?",
@@ -435,7 +430,7 @@ var questions = [
                 "correct": true,
             },
             {
-                "text" : "Au marché chez les vendeurs de médicaments",
+                "text" : "Au marché, chez les vendeurs de médicaments",
                 "comment": "Les vendeurs au marché ne peuvent pas te garantir des médicaments de bonne qualité. Il faut les acheter dans une pharmacie.",
                 "correct": false,
             },
