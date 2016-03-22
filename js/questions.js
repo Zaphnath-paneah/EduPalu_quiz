@@ -357,17 +357,17 @@ var questions = [
     "time": 15,
     "answers": [ 
             {
-                "text" : "A cause de la pauvreté",
+                "text" : "À cause de la pauvreté",
                 "comment": "Le climat chaud et humide est favorable à la fois au développement des moustiques anophèles et à l’évolution des parasites du paludisme dans ces anophèles.",
                 "correct": false,
             },
             {
-                "text" : "A cause du climat",
+                "text" : "À cause du climat",
                 "comment": "Le climat chaud et humide est favorable à la fois au développement des moustiques anophèles et à l’évolution des parasites du paludisme dans ces anophèles.",
                 "correct": true,
             },
             {
-                "text" : "A cause des grandes étendues de forêts et de savanes",
+                "text" : "À cause des grandes étendues de forêts et de savanes",
                 "comment": "Le climat chaud et humide est favorable à la fois au développement des moustiques anophèles et à l’évolution des parasites du paludisme dans ces anophèles.",
                 "correct": false,
             },
