@@ -33,14 +33,14 @@ function shuffle_index(a){
 }
 
  
-function start(){
+function start_quiz(){
     $("#score_value").html(score);
 	question_idx = questions_order.pop();
     questions_count = 1;
 	ask_question(question_idx);
 }
 
-function finish(){
+function finish_quiz(){
     // hide question header (q number + timer) 
     // and question body (question + answers)
     $("#question_header").css("display", "none");
@@ -75,7 +75,7 @@ function ask_question(){
     
 	// no more question
     if(questions_count > questions_nb){
-        finish();
+        finish_quiz();
         return false;
     }
     // get all data related to a question
