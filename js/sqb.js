@@ -45,7 +45,7 @@ function finish(){
     // and question body (question + answers)
     $("#question_header").css("display", "none");
     $("#question_body").css("display", "none");
-	$("#comment_1").html("<p>Le jeu est termin&eacute; !</p>");
+	$("#comment_1").html("<p>Le jeu est terminé !</p>");
 
     var content = "<input type='button' class='btn btn-primary' value='Rejouer' onclick='window.location.reload();' />";
     content += "&nbsp;&nbsp;";
@@ -54,10 +54,10 @@ function finish(){
     
     perf = score / score_max * 100;
     if (perf>=0 && perf<50){
-        msg = "Essaie de rejouer. Tu vas certainement t'am&eacute;liorer";
+        msg = "Essaie de rejouer. Tu vas certainement t'améliorer";
     }
     if (perf>=50 && perf<=80){
-        msg = "Tu as fait un bon score mais tu peux sans doute faire mieux. R&eacute;essaie.";
+        msg = "Tu as fait un bon score mais tu peux sans doute faire mieux. Réessaie.";
     }
     if (perf>=80 ){
         msg = "Bravo. Tu connais beaucoup de choses sur le paludisme.";
@@ -114,7 +114,7 @@ function ask_question(){
 
 function countdown(){
 	sec--;
-	if(sec<10){sec="0"+sec;}//mettre un z�ro avant l'unit�
+	if(sec<10){sec="0"+sec;}//mettre un zéro avant l'unité
 	document.getElementById("question_timer_value").innerHTML = sec;
 	if(sec>0){
         tempo=setTimeout('countdown()',1000);
@@ -123,7 +123,7 @@ function countdown(){
         // desactivate answers buttons
         $(".btn-answer").attr("onclick", "#");
         // add comment
-        $("#comment_1").html("<div class='wrong'>Le temps imparti est &eacute;coul&eacute; !<\/div>");
+        $("#comment_1").html("<div class='wrong'>Le temps imparti est écoulé !<\/div>");
         // add next button
         add_button_next(question_idx+1);
         // update score
@@ -159,9 +159,9 @@ function add_button_next(idx){
 function add_comment(correct, comment){
     var com_text = "";
     if (correct == true) {
-        com_text = "<div class='correct'>Bravo. Bonne r&eacute;ponse !<\/div>";
+        com_text = "<div class='correct'>Bravo. Bonne réponse !<\/div>";
     } else {
-        com_text = "<div class='wrong'>Mauvaise r&eacute;ponse.<\/div>";
+        com_text = "<div class='wrong'>Mauvaise réponse.<\/div>";
     }
     $("#comment_1").html(com_text);
     $("#comment_2").html(comment);

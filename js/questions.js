@@ -68,8 +68,8 @@ var questions = [
                 "correct": true,
             },
             {
-                "text" : "Allez consulter un guÈrisseur.",
-                "comment": "Seul un mÈdecin peut diagnostique avec certitude le paludisme.",
+                "text" : "Allez consulter un gu√©risseur.",
+                "comment": "Seul un m√©decin peut diagnostique avec certitude le paludisme.",
                 "correct": false,
             },
             {
@@ -85,7 +85,7 @@ var questions = [
     "answers": [ 
             {
                 "text" : "Chute des cheveux",
-                "comment": " tes-vous surs ? Voici quelques symptomes du paludisme : Fi&egrave;vre, vomisements, fatigue, diarrh&eacute;e, mal de tete...",
+                "comment": "√ätes-vous surs ? Voici quelques symptomes du paludisme : Fi&egrave;vre, vomisements, fatigue, diarrh&eacute;e, mal de tete...",
                 "correct": false,
             },
             {
@@ -137,7 +137,7 @@ var questions = [
             },
             {
                 "text" : "En prenant des m&eacute;dicaments contre le paludisme.",
-                "comment": "Prendre des m&eacute;dicaments pour se protÈger du paludisme n'est pas une solution ‡grave; long terme. La moustiquaire impr&eacute;gn&eacute;e est la solution la plus efficace et la plus &eacute;conomique.",
+                "comment": "Prendre des m&eacute;dicaments pour se prot√©ger du paludisme n'est pas une solution √†grave; long terme. La moustiquaire impr&eacute;gn&eacute;e est la solution la plus efficace et la plus &eacute;conomique.",
                 "correct": false,
             },
             {
@@ -163,7 +163,7 @@ var questions = [
             },
             {
                 "text" : "Palu",
-                "comment": "'Palu' est l'abbrÈviation franÁaise de paludisme. En anglais, paludisme se traduit par malaria.",
+                "comment": "'Palu' est l'abbr√©viation fran√ßaise de paludisme. En anglais, paludisme se traduit par malaria.",
                 "correct": false,
             },
             {
@@ -220,13 +220,13 @@ var questions = [
             },
             {
                 "text" : "La goutte &eacute;paisse.",
-                "comment": "La goutte &eacute;paisse qui permet de dÈtecter dans le sang la pr&eacute;sence de parasite donc de diagnostiquer un paludisme.",
+                "comment": "La goutte &eacute;paisse qui permet de d√©tecter dans le sang la pr&eacute;sence de parasite donc de diagnostiquer un paludisme.",
                 "correct": true,
             },
         ]
     },
     {
-    "text" : "Quel est le parasite responsable de la majorit&eacute; des cas de paludisme au Congo ?",
+    "text" : "Quel est le parasite responsable de la majorit√© des cas de paludisme au Congo ?",
     "time": 15,
     "answers": [ 
             {
