@@ -56,11 +56,11 @@ function finish(){
     if (perf>=0 && perf<50){
         msg = "Essaie de rejouer. Tu vas certainement t'améliorer";
     }
-    if (perf>=50 && perf<=80){
+    if (perf>=50 && perf<75){
         msg = "Tu as fait un bon score mais tu peux sans doute faire mieux. Réessaie.";
     }
-    if (perf>=80 ){
-        msg = "Bravo. Tu connais beaucoup de choses sur le paludisme.";
+    if (perf>=75 ){
+        msg = "Bravo. Tu as une bonne connaissance du paludisme.";
     }	
     $("#comment_2").html(msg);
 }
