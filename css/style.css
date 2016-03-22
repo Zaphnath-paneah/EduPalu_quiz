@@ -50,7 +50,8 @@
 .container {
     width: 600px;
     border: 1px solid #CACACA;
-    margin: auto auto;
+    margin: 50px auto;
+    padding: 30px 20px;
 }
 
 }
