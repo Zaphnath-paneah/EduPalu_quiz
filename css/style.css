@@ -46,9 +46,11 @@
 }
 
 @media (min-width: 600px) {
+
 .container {
     width: 600px;
-    border: 1px gray;
+    border: 1px solid #CACACA;
+    margin: auto auto;
 }
 
 }
