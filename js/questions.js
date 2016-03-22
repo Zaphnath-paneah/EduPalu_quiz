@@ -12,142 +12,116 @@ var questions = [
     "answers": [ 
             {
                 "text" : "Un medicament",
-                "comment": "Le paludisme est une maladie.",
+                "comment": "Le paludisme est une maladie, responsable en 2015 de 438 000 décès.",
                 "correct": false,
             },
             {
                 "text" : "Un maladie",
-                "comment": "Bravo !",
+                "comment": "En 2015, le paludisme a été responsable de 438 000 décès.",
                 "correct": true,
             },
             {
                 "text" : "Une mouche",
-                "comment": "Le paludisme est une maladie.",
+                "comment": "Le paludisme est une maladie, responsable en 2015 de 438 000 décès.",
                 "correct": false,
             },
             {
                 "text" : "Un moustique",
-                "comment": "Le paludisme est une maladie transmise par un moustique.",
+                "comment": "Le paludisme est une maladie, responsable en 2015 de 438 000 décès. Cette maladie est transmise par un moustique.",
                 "correct": false,
             },
         ]
     },    
     {
-    "text": "Quelle est la maladie qui cause le plus morts en Afrique?",
+    "text": "Que dois-tu faire quand tu penses avoir le paludisme ?",
     "time": 15,
     "answers": [ 
             {
-                "text" : "Le sida",
-                "comment": "Le sida est responsable de nombreux d&eacute;c&egrave;s en Afrique, mais c'est le paludisme qui cause le plus de morts.",
-                "correct": false,
-            },
-            {
-                "text" : "Le paludisme",
-                "comment": "A titre d'exemple, en 2014, le paludisme est responsable de xxx d&eacute;c&egrave;s en Afrique.",
+                "text" : "Aller consulter un medecin",
+                "comment": "Tu as raison. Dès que tu penses avoir un palu, va rapidement consulter un médecin.",
                 "correct": true,
             },
             {
-                "text" : "Ebola",
-                "comment": "L'&eacute;pid&eacute;mie due au virus Ebola a &eacute;t&eacute; responsable de beaucoup de d&eacute;c&egrave;s en 2014-2015, mais c'est le paludisme qui cause le plus de morts en Afrique.",
+                "text" : "Prendre des médicaments sans consulter un médecin avant",
+                "comment": "Seul un médecin peut diagnostiquer avec certitude le paludisme et te prescrire les bons médicaments à prendre.",
                 "correct": false,
             },
             {
-                "text" : "Le diab&egrave;te",
-                "comment": "C'est le paludisme qui est responsable du plus grand nombre de morts en Afrique.",
+                "text" : "Attendre que ca passe avec le temps",
+                "comment": "On peut mourir du paludisme si celui-ci n'est pas soigné à temps. Il faut allez consultez un médecin dès l'apparition de symptômes.",
+                "correct": false,
+            },
+            {
+                "text" : "Aller consulter un guérisseur",
+                "comment": "Va consulter un médecin. Il est le seul à pouvoir diagnostique correctement un paludisme.",
                 "correct": false,
             },
         ]
     },
     {
-    "text": "Que faut-il faire quant on pense avoir le paludisme ?",
-    "time": 15,
-    "answers": [ 
-            {
-                "text" : "Allez consulter un medecin.",
-                "comment": "Bravo. D&egrave;s que vous pensez avoir un palu, allez rapidement consulter un m&eacute;decin.",
-                "correct": true,
-            },
-            {
-                "text" : "Allez consulter un guérisseur.",
-                "comment": "Seul un médecin peut diagnostique avec certitude le paludisme.",
-                "correct": false,
-            },
-            {
-                "text" : "Attendre que ca passe avec le temps.",
-                "comment": "On peut mourrir du paludisme si celui-ci n'est pas soign&eacute; a temps. Il faut allez consultez un mvdecin d&egrave;s l'appariation de symptomes.",
-                "correct": false,
-            },
-        ]
-    },
-    {
-    "text" : "Quels sont les symptomes possilbles du paludisme ?",
+    "text" : "Quels sont les symptômes possibles du paludisme ?",
     "time": 15,
     "answers": [ 
             {
                 "text" : "Chute des cheveux",
-                "comment": "Êtes-vous surs ? Voici quelques symptomes du paludisme : Fi&egrave;vre, vomisements, fatigue, diarrh&eacute;e, mal de tete...",
+                "comment": "Les symptômes possible du paludisme sont : fièvre, vomissements, fatigue, diarrhée ou mal de tête.",
                 "correct": false,
             },
             {
-                "text" : "Fi&egrave;vre, vomisements, fatigue, diarrh&eacute;e",
-                "comment": "Exact. Le mal de tete peut etre aussi un symptome.",
+                "text" : "Fièvre, vomissements, fatigue, diarrhée et le mal de tête",
+                "comment": "Vas consulter un médecin dès que tu ressens ces symptômes.",
                 "correct": true,
             },
             {
-                "text" : "Douleur aux orteils.",
-                "comment": "Voici quelques symptomes du paludisme : Fi&egrave;vre, vomisements, fatigue, diarrh&eacute;e, mal de tete...",
+                "text" : "Douleur aux orteils",
+                "comment": "Les symptômes possible du paludisme sont : fièvre, vomissements, fatigue, diarrhée ou mal de tête.",
                 "correct": false,
             },
         ]
     },
     {
-    "text" : "Quel animal transmet le paludisme ?",
+    "text" : "Quel insect transmet le paludisme ?",
     "time": 15,
     "answers": [ 
             {
-                "text" : "Une mouche",
-                "comment": "C'est un moustique qui transmete le paludisme.",
+                "text" : "La guêpe",
+                "comment": "C'est le moustique qui transmet le paludisme.",
                 "correct": false,
             },
             {
-                "text" : "Une abeille",
-                "comment": "C'est un moustique qui transmete le paludisme.",
+                "text" : "La mouche tsé-tsé",
+                "comment": "C'est le moustique qui transmet le paludisme.",
                 "correct": false,
             },
             {
-                "text" : "Un serpent",
-                "comment": "C'est un moustique qui transmete le paludisme.",
-                "correct": false,
-            },
-            {
-                "text" : "Un moustique",
-                "comment": "Exact ! On dit que le moustique est le 'vecteur' du paludisme.",
+                "text" : "Le moustique",
+                "comment": "On dit que le moustique est le <em>vecteur</em> du paludisme.",
                 "correct": true,
             },
         ]
     },
     {
-    "text" : "Comment se prot&eacute;ger efficacement du paludisme lorsque vous dormez ?",
+    "text" : "Comment peux-tu te protéger efficacement du paludisme pendant ton sommeil ?",
     "time": 15,
     "answers": [ 
             {
-                "text" : "Avec une moustiquaire impr&eacute;gn&eacute;e.",
-                "comment": "La moustiquaire impr&eacute;gn&eacute;e est la meilleure potection. Veiillez &agrave; ce qu'elle soit sans trou et bien fix&eacute;e autour du matelas",
+                "text" : "En dormant sous une moustiquaire imprégnée d’insecticide",
+                "comment": "La moustiquaire imprégnée d’insecticide est la meilleure protection. Fais attention à ce qu'elle soit sans trou et bien fixée autour du matelas.",
                 "correct": true,
             },
             {
-                "text" : "En prenant des m&eacute;dicaments contre le paludisme.",
-                "comment": "Prendre des m&eacute;dicaments pour se protéger du paludisme n'est pas une solution àgrave; long terme. La moustiquaire impr&eacute;gn&eacute;e est la solution la plus efficace et la plus &eacute;conomique.",
+                "text" : "En prenant des médicaments contre le paludisme",
+                "comment": "Prendre des médicaments pour se protéger du paludisme n'est pas une solution à long terme. La moustiquaire imprégnée d’insecticide est la solution la plus efficace et la plus économique.",
                 "correct": false,
             },
             {
-                "text" : "Avec un appareil qui produit des ultrasons.",
-                "comment": "Ce genre d'appareil n'ont jamais montr&eacute; leur efficacit&eacute; pour lutter contre les moustiques. La moustiquaire impr&eacute;gn&eacute;e est la solution la plus efficace et la plus &eacute;conomique.",
+                "text" : "Avec un appareil qui produit des ultrasons",
+                "comment": "La moustiquaire imprégnée d’insecticide est la solution la plus efficace et la plus économique.",
                 "correct": false,
             },
             {
-                "text" : "Avec une tapette &agrave; mouche.",
-                "comment": "La moustiquaire impr&eacute;gn&eacute;e est la solution la plus efficace et la plus &eacute;conomique.",
+                "text" : "Avec une tapette à mouche",
+                "comment": "La moustiquaire imprégnée d’insecticide est la solution la plus efficace et la plus économique.",
                 "correct": false,
             },
         ]
@@ -158,94 +132,315 @@ var questions = [
     "answers": [ 
             {
                 "text" : "Maludisme",
-                "comment": "En anglais, paludisme se traduit par malaria.",
+                "comment": "En anglais, paludisme est appelé malaria.",
                 "correct": false,
             },
             {
                 "text" : "Palu",
-                "comment": "'Palu' est l'abbréviation française de paludisme. En anglais, paludisme se traduit par malaria.",
+                "comment": "<em>Palu</em> est l’abréviation française de paludisme. En anglais, paludisme est appelé malaria.",
                 "correct": false,
             },
             {
                 "text" : "Palaria",
-                "comment": "En anglais, paludisme se traduit par malaria.",
+                "comment": "En anglais, paludisme est appelé malaria.",
                 "correct": false,
             },
             {
                 "text" : "Malaria",
-                "comment": "Bravo. Vous avez raison.",
+                "comment": "Tu as trouvé. Félicitation !",
                 "correct": true,
             },
         ]
     },
     {
-    "text" : "Quel esp&egrave;ce de moustique transmet de le paludisme ?",
-    "time": 30,
-    "answers": [ 
-            {
-                "text" : "Paluph&egrave;le.",
-                "comment": "L'esp&egrave;ce de moustique qui transmet le paludisme est l'esp&egrave;ce 'anoph&egrave;le'.",
-                "correct": false,
-            },
-            {
-                "text" : "Mousticus malarius.",
-                "comment": "L'esp&egrave;ce de moustique qui transmet le paludisme est l'esp&egrave;ce 'anoph&egrave;le'.",
-                "correct": false,
-            },
-            {
-                "text" : "Anoph&egrave;le.",
-                "comment": "F&eacute;liciation ! Cette question eacute;tait difficile.",
-                "correct": true,
-            },
-            {
-                "text" : "Mousticus malariae.",
-                "comment": "L'esp&egrave;ce de moustique qui transmet le paludisme est l'esp&egrave;ce 'anoph&egrave;le'.",
-                "correct": false,
-            },
-        ]
-    },
-    {
-    "text" : "Quel examen permet de d&eacute;terminer si on a le paludisme ?",
+    "text" : "Quel est le nom du moustique qui transmet le paludisme ?",
     "time": 15,
     "answers": [ 
             {
-                "text" : "La goutte large.",
-                "comment": "La goutte &eacute;paisse permet de diagnostiquer une paludisme.",
+                "text" : "Paluphèle",
+                "comment": "Le moustique qui transmet le paludisme s'appelle anophèle.",
                 "correct": false,
             },
             {
-                "text" : "Une &eacute;chographie.",
-                "comment": "La goutte &eacute;paisse permet de diagnostiquer une paludisme.",
+                "text" : "Mousticus malarius",
+                "comment": "Le moustique qui transmet le paludisme s'appelle anophèle.",
                 "correct": false,
             },
             {
-                "text" : "La goutte &eacute;paisse.",
-                "comment": "La goutte &eacute;paisse qui permet de détecter dans le sang la pr&eacute;sence de parasite donc de diagnostiquer un paludisme.",
+                "text" : "Anophèle",
+                "comment": "Félicitation ! Cette question était difficile.",
                 "correct": true,
             },
         ]
     },
     {
-    "text" : "Quel est le parasite responsable de la majorité des cas de paludisme au Congo ?",
+    "text" : "Est-ce que tous les moustiques anophèles transmettent le paludisme ?",
     "time": 15,
     "answers": [ 
             {
-                "text" : "Plasmodium congolum.",
-                "comment": "La bonne r&eacute;ponse est Plasmodium falciparum.",
+                "text" : "Oui",
+                "comment": "Seuls les anophèles femelles transmettent le paludisme.",
                 "correct": false,
             },
             {
-                "text" : "Plasmodium falciparum.",
-                "comment": "Bravo",
+                "text" : "Non",
+                "comment": "Tu as raison. Seuls les anophèles femelles transmettent le paludisme.",
+                "correct": true,
+            },
+        ]
+    },
+    {
+    "text" : "Quel examen permet de déterminer si tu as le paludisme ?",
+    "time": 15,
+    "answers": [ 
+            {
+                "text" : "La goutte large",
+                "comment": "C’est la goutte épaisse qui permet de diagnostiquer un paludisme.",
+                "correct": false,
+            },
+            {
+                "text" : "Une échographie",
+                "comment": "C’est la goutte épaisse qui permet de diagnostiquer un paludisme.",
+                "correct": false,
+            },
+            {
+                "text" : "La goutte épaisse",
+                "comment": "La goutte épaisse permet de détecter dans le sang la présence de parasites du paludisme donc de diagnostiquer cette maladie.",
+                "correct": true,
+            },
+        ]
+    },
+    {
+    "text" : "A part la goutte épaisse, quel autre examen permet de déterminer si tu as le paludisme ?",
+    "time": 15,
+    "answers": [ 
+            {
+                "text" : "La numération formule sanguine",
+                "comment": "Le test de diagnostic rapide (TDR) permet aussi de diagnostiquer le paludisme.",
+                "correct": false,
+            },
+            {
+                "text" : "Le test de diagnostic rapide (TDR)",
+                "comment": "Le TDR permet aussi de diagnostiquer le paludisme.",
                 "correct": true,
             },
             {
-                "text" : "Anoph&egrave;le.",
-                "comment": "Le parasite responsable du paludisme au Congo est Plasmodium falciparum.",
+                "text" : "Le test d’Emmel",
+                "comment": "Le test de diagnostic rapide (TDR) permet aussi de diagnostiquer le paludisme.",
                 "correct": false,
             },
         ]
-    }
+    },
+    {
+    "text" : "Quelle est l’espèce du parasite responsable de la plupart des cas de paludisme au Congo ?",
+    "time": 15,
+    "answers": [ 
+            {
+                "text" : "Plasmodium congolum",
+                "comment": "La bonne réponse est Plasmodium falciparum.",
+                "correct": false,
+            },
+            {
+                "text" : "Plasmodium falciparum",
+                "comment": "C'était une question difficile. Félicitation !",
+                "correct": true,
+            },
+            {
+                "text" : "Anophèle",
+                "comment": "<em>Anophèle</em> est l'espèce de moustique qui transmet le paludisme. La bonne réponse était Plasmodium falciparum.",
+                "correct": false,
+            },
+            {
+                "text" : "Plasmodium vivax",
+                "comment": "La bonne réponse est Plasmodium falciparum.",
+                "correct": false,
+            },
+        ]
+    },
+    {
+    "text" : "Dans le corps humain, où se cachent et se multiplient les parasites responsables du paludisme ?",
+    "time": 15,
+    "answers": [ 
+            {
+                "text" : "Dans les os",
+                "comment": "Les parasites du paludisme se cachent et se multiplient dans les cellules du foie.",
+                "correct": false,
+            },
+            {
+                "text" : "Dans le sang, à l’intérieur des globules blancs",
+                "comment": "Les parasites du paludisme se cachent et se multiplient dans les cellules du foie.",
+                "correct": false,
+            },
+            {
+                "text" : "Dans les cellules du foie",
+                "comment": "Après s'être multipliés dans le foie, les parasites vont ensuite dans la circulation sanguine.",
+                "correct": true,
+            },
+        ]
+    },
+    {
+    "text" : "Dans le corps humains, où se multiplient les parasites responsable du paludisme jusqu’à provoquer les symptômes de la maladie ?",
+    "time": 15,
+    "answers": [ 
+            {
+                "text" : "Dans les cellules du foie",
+                "comment": "Lorsque tu ressens les symptômes du paludisme, les parasites se trouvent dans le sang, à l’intérieur des globules rouges.",
+                "correct": false,
+            },
+            {
+                "text" : "Dans l’estomac",
+                "comment": "Lorsque tu ressens les symptômes du paludisme, les parasites se trouvent dans le sang, à l’intérieur des globules rouges.",
+                "correct": false,
+            },
+            {
+                "text" : "Dans le sang, à l’intérieur des globules rouges",
+                "comment": "Tu peux alors ressentir les symptômes du paludisme : mal de tête, fatigue, vomissement ou diarrhée.",
+                "correct": true,
+            },
+            {
+                "text" : "Dans les os, au niveau des articulations",
+                "comment": "Lorsque tu ressens les symptômes du paludisme, les parasites se trouvent dans le sang, à l’intérieur des globules rouges.",
+                "correct": false,
+            },
+        ]
+    },
+    {
+    "text" : "Existe-t-il un vaccin contre le paludisme ?",
+    "time": 15,
+    "answers": [ 
+            {
+                "text" : "Oui",
+                "comment": "Pour le moment, il n’existe que des vaccins qui sont en cours d’étude qu’on appelle des <em>vaccins candidats</em>. Les chercheurs et les médecins travaillent durs pour qu'un vaccin puisse bientôt protéger les populations.",
+                "correct": false,
+            },
+            {
+                "text" : "Non",
+                "comment": "Pour le moment, il n’existe que des vaccins qui sont en cours d’étude qu’on appelle des <em>vaccins candidats</em>. Les chercheurs et les médecins travaillent durs pour qu'un vaccin puisse bientôt protéger les populations.",
+                "correct": true,
+            },
+        ]
+    },
+    {
+    "text" : "Peut-on éradiquer le paludisme de la surface de la terre sans un vaccin contre cette maladie ?",
+    "time": 15,
+    "answers": [ 
+            {
+                "text" : "Non",
+                "comment": "Un vaccin est indispensable pour se débarrasser complètement du paludisme.",
+                "correct": true,
+            },
+            {
+                "text" : "Oui",
+                "comment": "Seul un vaccin efficace pourra éradiquer rapidement le paludisme de la surface de la terre.",
+                "correct": false,
+            },
+        ]
+    },
+    {
+    "text" : "Est-ce que tu peux savoir si quelqu’un a le paludisme rien qu’en le regardant ?",
+    "time": 15,
+    "answers": [ 
+            {
+                "text" : "Oui",
+                "comment": "Le seul moyen pour savoir si une personne souffre du paludisme est de faire l'examen de la goutte épaisse ou un test de diagnostic rapide.",
+                "correct": false,
+            },
+            {
+                "text" : "Non",
+                "comment": "Tu as raison. Seuls un examen de la goutte épaisse ou un test de diagnostic rapide peuvent diagnostiquer le paludisme.",
+                "correct": false,
+            },
+        ]
+    },
+    {
+    "text" : "Pourquoi n’y-a-t-il du paludisme que dans les pays chauds ?",
+    "time": 15,
+    "answers": [ 
+            {
+                "text" : "A cause de la pauvreté",
+                "comment": "Le climat chaud et humide est favorable à la fois au développement des moustiques anophèles et à l’évolution des parasites du paludisme dans ces anophèles.",
+                "correct": false,
+            },
+            {
+                "text" : "A cause du climat",
+                "comment": "Le climat chaud et humide est favorable à la fois au développement des moustiques anophèles et à l’évolution des parasites du paludisme dans ces anophèles.",
+                "correct": true,
+            },
+            {
+                "text" : "A cause des grandes étendues de forêts et de savanes",
+                "comment": "Le climat chaud et humide est favorable à la fois au développement des moustiques anophèles et à l’évolution des parasites du paludisme dans ces anophèles.",
+                "correct": false,
+            },
+        ]
+    },
+    {
+    "text" : "Quelles sont les catégories de personnes qui meurent le plus du paludisme ?",
+    "time": 15,
+    "answers": [ 
+            {
+                "text" : "Les adultes",
+                "comment": "Ce sont les enfants de moins de 5 ans et les femmes enceintes qui meurent le plus du paludisme.",
+                "correct": false,
+            },
+            {
+                "text" : "Les personnes âgées",
+                "comment": "Ce sont les enfants de moins de 5 ans et les femmes enceintes qui meurent le plus du paludisme.",
+                "correct": false,
+            },
+            {
+                "text" : "Les enfants de moins de 5 ans et les femmes enceintes",
+                "comment": "Il est donc important de protéger particulièrement ces populations.",
+                "correct": true,
+            },
+            {
+                "text" : "Les adolescents",
+                "comment": "Ce sont les enfants de moins de 5 ans et les femmes enceintes qui meurent le plus du paludisme.",
+                "correct": false,
+            },
+        ]
+    },
+    {
+    "text" : "Pourquoi les enfants de moins de 5 ans et les femmes enceintes sont-ils les personnes qui meurent le plus du paludisme ?",
+    "time": 15,
+    "answers": [ 
+            {
+                "text" : "À cause de la nourriture qu’ils mangent",
+                "comment": "C’est à cause d’un faible système de défense immunitaire. Le système de défense immunitaire des jeunes enfants n'est pas encore construit et celui des femmes enceintes est diminué par la grossesse.",
+                "correct": false,
+            },
+            {
+                "text" : "À cause d’un faible système de défense immunitaire",
+                "comment": "Le système de défense immunitaire des jeunes enfants n'est pas encore construit et celui des femmes enceintes est diminué par la grossesse.",
+                "correct": true,
+            },
+            {
+                "text" : "À cause de la faiblesse physique",
+                "comment": "C’est à cause d’un faible système de défense immunitaire. Le système de défense immunitaire des jeunes enfants n'est pas encore construit et celui des femmes enceintes est diminué par la grossesse.",
+                "correct": false,
+            },
+        ]
+    },
+    {
+    "text" : "Où dois-tu acheter les médicaments contre le paludisme prescrits par le médecin ?",
+    "time": 15,
+    "answers": [ 
+            {
+                "text" : "Chez les vendeurs ambulants",
+                "comment": "Les vendeurs ambulants ne peuvent pas te garantir des médicaments de bonne qualité. Il faut les acheter dans une pharmacie.",
+                "correct": false,
+            },
+            {
+                "text" : "À la pharmacie",
+                "comment": "Seules les pharmacies peuvent te garantir des médicaments de bonne qualité.",
+                "correct": true,
+            },
+            {
+                "text" : "Au marché chez les vendeurs de médicaments",
+                "comment": "Les vendeurs au marché ne peuvent pas te garantir des médicaments de bonne qualité. Il faut les acheter dans une pharmacie.",
+                "correct": false,
+            },
+        ]
+    },
 ]
 
 
