@@ -41,7 +41,10 @@ function start(){
 }
 
 function finish(){
-    $()
+    // hide question header (q number + timer) 
+    // and question body (question + answers)
+    $("#question_header").css("display", "none");
+    $("#question_body").css("display", "none");
 	$("#comment_1").html("<p>Le jeu est termin&eacute; !</p>");
 
     var content = "<input type='button' class='btn btn-primary' value='Rejouer' onclick='window.location.reload();' />";
@@ -67,7 +70,8 @@ function ask_question(){
     // clean previous comment (if any)
     $("#comment_1").html("");
     $("#comment_2").html("");
-    $("#button_next").remove();
+    // remove next button
+    $("#next-replay").html("");
     
 	// no more question
     if(questions_count > questions_nb){
@@ -87,9 +91,9 @@ function ask_question(){
 	answers_content+="<form id='frm' action='#'>";
 	for(var i=0; i<q_data.answers.length; i++){
         var answer_idx = answers_shuffled.pop();
-        answers_content += "<div class='answer'><input type='button' class='btn-answer btn btn-primary'";
+        answers_content += "<div class='answer'><input type='button' class='btn btn-primary'";
         answers_content += " value=' " + q_data.answers[answer_idx].text +" '"; 
-        answers_content += "onclick='corriger("+question_idx+","+answer_idx+");' /></div>";
+        answers_content += " onclick='correct_answer("+question_idx+","+answer_idx+");' /></div>";
 
     }
 	answers_content+="<\/form>";
@@ -103,21 +107,32 @@ function ask_question(){
     questions_count ++;
     // update countdown
     sec=parseInt(q_data.time)+1;
-    rebours();
+    countdown();
     // update score
     $("#question_score_value").html(score);
 }
 
-function rebours(){
+function countdown(){
 	sec--;
 	if(sec<10){sec="0"+sec;}//mettre un zéro avant l'unité
 	document.getElementById("question_timer_value").innerHTML = sec;
-	if(sec>0){tempo=setTimeout('rebours()',1000);}
-	if(sec==0){trop_tard();return false;}
+	if(sec>0){
+        tempo=setTimeout('countdown()',1000);
+    }
+	if(sec==0){
+        // desactivate answers buttons
+        $(".btn-answer").attr("onclick", "#");
+        // add comment
+        $("#comment_1").html("<div class='wrong'>Le temps imparti est &eacute;coul&eacute; !<\/div>");
+        // add next button
+        add_button_next(question_idx+1);
+        // update score
+        $("#question_score_value").html(score);
+        return false;
+    }
 }
 
-
-function corriger(q_idx, a_idx){
+function correct_answer(q_idx, a_idx){
     var answer = questions[q_idx].answers[a_idx];
     // stop countdown
     clearTimeout(tempo);
@@ -135,21 +150,6 @@ function corriger(q_idx, a_idx){
     add_comment(answer.correct, answer.comment);
     add_button_next(question_idx);
 }
-
-
-function trop_tard(){
-    // desactivate answers buttons
-    $(".btn-answer").attr("onclick", "#");
-    
-    $("#comment_1").html("<div class='wrong'>Le temps imparti est &eacute;coul&eacute; !<\/div>");
-    if(question_idx+1==question_nb){
-        fini();
-        return false;
-    }
-    add_button_next(question_idx+1);
-    $("#question_score_value").html(score);
-}
-
 
 function add_button_next(idx){
     var content = "<input type='button' class='btn btn-primary' value='Continuer' onclick='ask_question("+(idx)+");' />";

@@ -21,14 +21,11 @@
     clear: both;
 }
 
-#answers {
+.answer {
     min-width: 100%;
     text-align: center;
-}
-
-.btn-answer {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #question_footer {
