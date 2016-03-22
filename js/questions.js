@@ -1,13 +1,10 @@
 // number of questions to ask
 var questions_nb=3;
 
+// reset score
 var score=0;
 
-var qst=new Array();// <== NE PAS MODIFIER !!    
-		// La variable n représente le numéro de la question et est incrémenté (n++;) à chaque nouvelle question.
-		//Cela permet de supprimer, d'ajouter ou de déplacer des questions sans devoir modifier les numéros des questions
-var n=-1;			 // <== NE PAS MODIFIER !!
-
+// define questions and answers
 var questions = [
     {
     "text": "Qu'est-ce que le paludisme ?",
