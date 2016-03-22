@@ -88,11 +88,11 @@ function ask_question(){
     answers_shuffled = shuffle_index(q_data.answers)
     // write answers
 	var answers_content="";
-	answers_content+="<form id='frm' action='#'>";
+	answers_content+="<form action='#'>";
 	for(var i=0; i<q_data.answers.length; i++){
         var answer_idx = answers_shuffled.pop();
-        answers_content += "<div class='answer'><input type='button' class='btn btn-primary'";
-        answers_content += " value=' " + q_data.answers[answer_idx].text +" '"; 
+        answers_content += "<div class='answer'><input type='button' class='btn btn-primary btn-answer'";
+        answers_content += " value='" + q_data.answers[answer_idx].text +"'"; 
         answers_content += " onclick='correct_answer("+question_idx+","+answer_idx+");' /></div>";
 
     }
