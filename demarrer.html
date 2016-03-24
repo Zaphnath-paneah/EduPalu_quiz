@@ -1,20 +1,41 @@
 <!DOCTYPE HTML>
-
 <html>
 <head>
-    <title>Quiz Edupalu Fongw@ma</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edupalu Quiz / FCRM &amp; Fongwama</title>
     <link href="css/bootstrap.css" rel="stylesheet">
-    <script type="text/javascript" src="js/questions.js"></script><!-- "questions.js" contient vos questions, vos propositions et vos commentaires -->
-    <script type="text/javascript" src="js/sqb.js"></script><!-- "sqb.js" contient les fonctions indispensables à l'exécution du script -->
+    <link href="css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="js/questions.js"></script>
+    <script type="text/javascript" src="js/quiz.js"></script>
 </head>
-<body onload="start();">
+<body onload="start_quiz();">
     <div class="container" id="page">
-        <section class="row">
-            <div id="mains">
-                <div id="questions">.</div>
+        <div id="question_header">
+            <div id="question_nb">
+                Question <span id="question_nb_value"></span>
             </div>
-        </section> 
+            <div id="question_timer">
+                Temps restant : <span id="question_timer_value"></span>
+            </div>
+        </div>
+        <div id="question_body">
+            <div id="question_text"></div>
+            <div id="answers"></div>
+        </div>
+        <div id="question_comment">
+            <div id="comment_1"></div>
+            <div id="comment_2"></div>
+        </div>
+        <div id="question_footer"> 
+            <div id="question_score">
+                Score : <span id="question_score_value"></span>
+            </div>
+            <div id="next-replay">
+            </div>
+        </div>
+
     </div>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 </body>
 </html>
