@@ -53,7 +53,7 @@ function quiz_finish(){
     var content = "<input type='button' class='btn btn-primary' value='Rejouer' onclick='window.location.reload();' />";
     content += "&nbsp;&nbsp;";
     content += "<a href='quiz_start.html' class='btn btn-primary'>Quitter</a>"
-    $("#next-replay").html(content);
+    $("#question_next_replay").html(content);
     
     perf = score / score_max * 100;
     if (perf>=0 && perf<50){
@@ -74,7 +74,7 @@ function ask_question(){
     $("#comment_1").html("");
     $("#comment_2").html("");
     // remove next button
-    $("#next-replay").html("");
+    $("#question_next_replay").html("");
     
 	// no more question
     if(questions_count > questions_nb){
@@ -94,7 +94,7 @@ function ask_question(){
 	answers_content+="<form action='#'>";
 	for(var i=0; i<q_data.answers.length; i++){
         var answer_idx = answers_shuffled.pop();
-        answers_content += "<div class='answer'><input type='button' class='btn btn-primary btn-answer'";
+        answers_content += "<div class='question_answer'><input type='button' class='btn btn-primary btn-answer'";
         answers_content += " value='" + q_data.answers[answer_idx].text +"'"; 
         answers_content += " onclick='correct_answer("+question_idx+","+answer_idx+");' /></div>";
 
@@ -126,7 +126,7 @@ function countdown(){
         // desactivate answers buttons
         $(".btn-answer").attr("onclick", "#");
         // add comment
-        $("#comment_1").html("<div class='wrong'>Le temps imparti est écoulé !<\/div>");
+        $("#comment_1").html("<div class='answer_wrong'>Le temps imparti est écoulé !<\/div>");
         // add next button
         add_button_next(question_idx+1);
         // update score
@@ -156,15 +156,15 @@ function correct_answer(q_idx, a_idx){
 
 function add_button_next(idx){
     var content = "<input type='button' class='btn btn-primary' value='Continuer' onclick='ask_question("+(idx)+");' />";
-    $("#next-replay").html(content);
+    $("#question_next_replay").html(content);
 }
 
 function add_comment(correct, comment){
     var com_text = "";
     if (correct == true) {
-        com_text = "<div class='correct'>Bravo. Bonne réponse !<\/div>";
+        com_text = "<div class='answer_correct'>Bravo. Bonne réponse !<\/div>";
     } else {
-        com_text = "<div class='wrong'>Mauvaise réponse.<\/div>";
+        com_text = "<div class='answer_wrong'>Mauvaise réponse.<\/div>";
     }
     $("#comment_1").html(com_text);
     $("#comment_2").html(comment);

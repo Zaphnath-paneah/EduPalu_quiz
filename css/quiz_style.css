@@ -2,14 +2,14 @@
   margin: 5px;
 }
 
-#question_nb, #question_timer, #question_score, #next-replay {
+#question_nb, #question_timer, #question_score, #question_next_replay {
     display: inline-block;
     font: bold 12pt arial;
     color: #6495ED;
     padding: 3px 0px 3px 0px;
 }
 
-#question_timer, #next-replay {
+#question_timer, #question_next_replay {
     float: right;
 }
 
@@ -21,7 +21,7 @@
     clear: both;
 }
 
-.answer {
+.question_answer {
     min-width: 100%;
     text-align: center;
     margin-top: 10px;
@@ -33,15 +33,15 @@
 }
 
 
-.correct, .wrong {
+.answer_correct, .answer_wrong {
   font-weight: bold;
 }
 
-.correct {
+.answer_correct {
     color: #089A08;
 }
 
-.wrong {
+.answer_wrong {
     color: #FF6363;
 }
 
