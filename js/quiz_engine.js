@@ -32,18 +32,18 @@ function shuffle_index(a){
     return temp_array;
 }
 
-function welcome_quiz(){
+function quiz_start(){
     document.getElementById("welcome_questions_nb").innerHTML = questions_nb;
 }
  
-function start_quiz(){
+function quiz_play(){
     $("#score_value").html(score);
 	question_idx = questions_order.pop();
     questions_count = 1;
 	ask_question(question_idx);
 }
 
-function finish_quiz(){
+function quiz_finish(){
     // hide question header (q number + timer) 
     // and question body (question + answers)
     $("#question_header").css("display", "none");
@@ -52,7 +52,7 @@ function finish_quiz(){
 
     var content = "<input type='button' class='btn btn-primary' value='Rejouer' onclick='window.location.reload();' />";
     content += "&nbsp;&nbsp;";
-    content += "<a href='index.html' class='btn btn-primary'>Quitter</a>"
+    content += "<a href='quiz_start.html' class='btn btn-primary'>Quitter</a>"
     $("#next-replay").html(content);
     
     perf = score / score_max * 100;
@@ -78,7 +78,7 @@ function ask_question(){
     
 	// no more question
     if(questions_count > questions_nb){
-        finish_quiz();
+        quiz_finish();
         return false;
     }
     // get all data related to a question
