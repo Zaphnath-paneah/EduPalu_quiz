@@ -343,7 +343,7 @@ var questions = [
             {
                 "text" : "Non",
                 "comment": "Tu as raison. Seuls un examen de la goutte épaisse ou un test de diagnostic rapide peuvent diagnostiquer le paludisme.",
-                "correct": false,
+                "correct": true,
             },
         ]
     },
